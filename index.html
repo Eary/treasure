@@ -44,7 +44,7 @@
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
                 </a>
-                <a href="#" class="tab-item">
+                <a href="general.html" class="tab-item">
                     <span class="icon icon-app"></span>
                     <span class="tab-label">普通商品</span>
                 </a>
@@ -102,7 +102,7 @@ $(function(){
     // 添加'refresh'监听器
     $(document).on('refresh', '.pull-to-refresh-content',function(e) {
         // 模拟2s的加载过程
-        setTimeout(function() {
+        //setTimeout(function() {
             // var cardNumber = $(e.target).find('.card').length + 1;
             // var cardHTML =  '<div class="card">' +
             //                 '<div class="card-header">card'+cardNumber+'</div>' +
@@ -116,8 +116,9 @@ $(function(){
             // $(e.target).find('.card-container').prepend(cardHTML);
             // // 加载完毕需要重置
             // $.pullToRefreshDone('.pull-to-refresh-content'); 
-            $.router.load("/index.html");
-        }, 2000);
+        //}, 2000);
+        
+        $.router.load("./index.html");
     });
 
     
