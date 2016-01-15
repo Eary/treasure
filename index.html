@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>夺宝王 | 首页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.1/css/sm.css">
+    <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.1/css/sm-extend.css">
+      <style>
+          .swiper-slide a {
+              display: block;
+              text-align: center;
+          }
+
+          .swiper-slide img {
+              display: inline-block;
+          }
+
+          @media (max-width:780px) {
+              .swiper-slide img {
+                  width: 100%;
+              }
+          }
+      </style>
+  </head>
+<body>
+    <div class="page-group">
+        <div class="page">
+            <header class="bar bar-nav">
+                <a href="#" class="button button-link button-nav pull-left" data-transition="slide-out">
+                    <span class="icon icon-left"></span>
+                    返回
+                </a>
+            </header>
+            <nav class="bar bar-tab">
+                <a href="#" class="tab-item active">
+                    <span class="icon icon-home"></span>
+                    <span class="tab-label">首页</span>
+                </a>
+                <a href="#" class="tab-item">
+                    <span class="icon icon-me"></span>
+                    <span class="tab-label">我</span>
+                </a>
+                <a href="#" class="tab-item">
+                    <span class="icon icon-star"></span>
+                    <span class="tab-label">收藏</span>
+                </a>
+                <a href="#" class="tab-item">
+                    <span class="icon icon-settings"></span>
+                    <span class="tab-label">设置</span>
+                </a>
+            </nav>
+            <div class="content pull-to-refresh-content"  data-ptr-distance="55">
+                <div class="pull-to-refresh-layer">
+                    <div class="preloader"></div>
+                    <div class="pull-to-refresh-arrow"></div>
+                </div> 
+                <div class="swiper-container" data-space-between='10'>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><a href=# ><img src="./images/56893273bf7cd.jpg" alt=""></a></div>
+                        <div class="swiper-slide"><a href=# ><img src="./images/568932778ec3d.jpg" alt=""></a></div>
+                        <div class="swiper-slide"><a href=# ><img src="./images/56893284bb7ca.jpg" alt=""></a></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.1/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='https://g.alicdn.com/msui/sm/0.6.1/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+
+<script>
+$(function(){
+    // $(document.body).on('pageInit','.page-current',function(){
+    //     $('.pull-to-refresh-content').on('refresh',function(e){
+            
+    //     });
+    // });
+    
+    $.init();
+    
+    $(".swiper-container").swiper({
+        autoplay:2000,                      //自动播放间隔
+        autoplayDisableOnInteraction:false, //拖动后是否禁用自动播放
+        speed:500,                          //过渡时间
+        //effect:'slide',                   //动画效果:slide/fade/cube/coverflow
+        paginationClickable:true
+    });
+    
+    // 添加'refresh'监听器
+    $(document).on('refresh', '.pull-to-refresh-content',function(e) {
+        // 模拟2s的加载过程
+        setTimeout(function() {
+            var cardNumber = $(e.target).find('.card').length + 1;
+            var cardHTML = '<div class="card">' +
+                            '<div class="card-header">card'+cardNumber+'</div>' +
+                            '<div class="card-content">' +
+                                '<div class="card-content-inner">' +
+                                    '这里是第' + cardNumber + '个card，下拉刷新会出现第' + (cardNumber + 1) + '个card。' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+
+            $(e.target).find('.card-container').prepend(cardHTML);
+            // 加载完毕需要重置
+            $.pullToRefreshDone('.pull-to-refresh-content');
+        }, 2000);
+    });
+
+
+    
+});
+</script>
+</body>
+</html>
