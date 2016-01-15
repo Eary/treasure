@@ -31,23 +31,23 @@
                 <h1 class=title >普通商品</h1>
             </header>
             <nav class="bar bar-tab">
-                <a href="index.html" class="tab-item">
+                <a href="index.html" class="tab-item" class="external">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
                 </a>
-                <a href="general.html" class="tab-item active">
+                <a href="general.html" class="tab-item active" class="external">
                     <span class="icon icon-app"></span>
                     <span class="tab-label">普通商品</span>
                 </a>
-                <a href="bargain.html" class="tab-item">
+                <a href="bargain.html" class="tab-item" class="external">
                     <span class="icon icon-clock"></span>
                     <span class="tab-label">特价商品</span>
                 </a>
-                <a href="#" class="tab-item">
+                <a href="#" class="tab-item" class="external">
                     <span class="icon icon-gift"></span>
                     <span class="tab-label">晒单</span>
                 </a>
-                <a href="#" class="tab-item">
+                <a href="#" class="tab-item" class="external">
                     <span class="icon icon-cart"></span>
                     <span class="tab-label">购物车</span>
                     <span class="badge">2</span>
@@ -70,30 +70,7 @@
 <script>
 $(function(){
 
-    
-    // 添加'refresh'监听器
-    $(document).on('refresh', '.pull-to-refresh-content',function(e) {
-        // 模拟2s的加载过程
-        // setTimeout(function() {
-        //     var cardNumber = $(e.target).find('.card').length + 1;
-        //     var cardHTML =  '<div class="card">' +
-        //                     '<div class="card-header">card'+cardNumber+'</div>' +
-        //                     '<div class="card-content">' +
-        //                         '<div class="card-content-inner">' +
-        //                             '这里是第' + cardNumber + '个card，下拉刷新会出现第' + (cardNumber + 1) + '个card。' +
-        //                             '</div>' +
-        //                         '</div>' +
-        //                     '</div>';
 
-        //     $(e.target).find('.card-container').prepend(cardHTML);
-        //     // 加载完毕需要重置
-        //     $.pullToRefreshDone('.pull-to-refresh-content');
-        // }, 2000);
-        
-        //$.router.load("./general.html");
-    });
-
-    
     $.init();
 
     
