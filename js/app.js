@@ -1,6 +1,6 @@
 $(function(){
     
-    $.reinitSwiper('.current-page');
+    //$.reinitSwiper('.current-page');
 
     $(".swiper-container").swiper({
         initialSlide:0,
