@@ -1,5 +1,7 @@
 $(function(){
     
+    $.reinitSwiper('.current-page');
+
     $(".swiper-container").swiper({
         initialSlide:0,
         autoplay:2000,                      //自动播放间隔
@@ -36,7 +38,7 @@ $(function(){
     
     $.init();
     
-    //$.reinitSwiper('.current-page');
+    
 
     
 });
