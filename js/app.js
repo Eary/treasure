@@ -36,7 +36,7 @@ $(function(){
     
     $.init();
     
-    $.reinitSwiper();
+    $.reinitSwiper('.current-page');
 
     
 });
