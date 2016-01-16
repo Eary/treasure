@@ -10,3 +10,6 @@
 
 ###step .4
 > gulp 
+
+###step .5
+> localhost:3000
