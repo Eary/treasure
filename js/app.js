@@ -34,9 +34,9 @@ $(function(){
         
     //});
     
-    $.reinitSwiper();
-    
     $.init();
+    
+    $.reinitSwiper();
 
     
 });
