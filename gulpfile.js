@@ -22,6 +22,10 @@ var combiner = require('stream-combiner2');
 
 var browsersync = require('browser-sync');
 
+var clean = require('gulp-clean');
+
+var rename = require('gulp-rename');
+
 //错误日志输出
 var handleError = function(){
     var colors = gutil.colors;
@@ -60,11 +64,18 @@ gulp.task('help',function(){
     console.log('gulp watchsass     #监听sass文件改变, 编译并压缩, 输出到dist');
 });
 
+gulp.task('clean',function(){
+    return gulp.src('dist/**/*',{read:false})
+    .pipe(clean({force:true}));
+});
+
 //压缩js，并输出到dist
 gulp.task('js',function(){
     var combined = combiner.obj([
         gulp.src('src/js/**/*.js'),
         jshint(),
+        gulp.dest('dist/js'),
+        rename({ suffix: '.min' }),
         uglify(),
         //concat('common.js'),
         gulp.dest('dist/js')
@@ -214,12 +225,9 @@ gulp.task('watchsass',function(){
     });
 });
 
-gulp.task('copy',['copyfonts','copyhtmls']);
-gulp.task('copyfonts',function(){
+gulp.task('copy',function(){
     gulp.src('src/fonts/**/*')
         .pipe(gulp.dest('dist/fonts/'));
-});
-gulp.task('copyhtmls',function(){
     gulp.src('src/**/*.html')
         .pipe(gulp.dest('dist/'));
 });
@@ -233,9 +241,36 @@ gulp.task('watchcopy', function () {
 
         gulp.src(paths.srcDir)
             .pipe(gulp.dest(paths.distDir));
-    })
-})
+    });
+});
+/*
+// 处理完JS文件后返回流
+gulp.task('js', function () {
+    return gulp.src('js/*js')
+    .pipe(browserify())
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'));
+});
 
+// 创建一个任务确保JS任务完成之前能够继续响应
+// 浏览器重载
+gulp.task('js-watch', ['js'], browserSync.reload);
 
+// 使用默认任务启动Browsersync，监听JS文件
+gulp.task('serve', ['js'], function () {
+
+    // 从这个项目的根目录启动服务器
+    browserSync({
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    // 添加 browserSync.reload 到任务队列里
+    // 所有的浏览器重载后任务完成。
+    gulp.watch("js/*.js", ['js-watch']);
+});
+
+*/
 //在命令行使用 gulp 启动任务
 gulp.task('default', ['css', 'js', 'images', 'less', 'sass', 'copy', 'watchjs', 'watchcss', 'watchless', 'watchsass', 'watchimage', 'browser-sync']);

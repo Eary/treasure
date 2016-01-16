@@ -1,1 +1,8 @@
-$.config={routerFilter:function(e){return e.is(".disable-route a")||e.is("a.disable-route")?!1:!0}};
+$.config = {
+    routerFilter: function($link){
+        if($link.is('.disable-route a') || $link.is('a.disable-route')){
+            return false;
+        }
+        return true;
+    }
+};
