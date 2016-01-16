@@ -1,0 +1,1 @@
+$.config={routerFilter:function(e){return e.is(".disable-route a")||e.is("a.disable-route")?!1:!0}};
