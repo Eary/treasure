@@ -1,1 +1,5 @@
-.swiper-slide a{display:block;text-align:center}.swiper-slide img{display:inline-block}@media (max-width:780px){.swiper-slide img{width:100%}}
+.swiper-slide a {display: block;text-align: center;}
+.swiper-slide img {display: inline-block;}
+@media (max-width:780px) {
+    .swiper-slide img {width: 100%;}
+}
