@@ -2,11 +2,9 @@
   "name": "treasure",
   "version": "1.0.0",
   "description": "treasure",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
-    "build": "webpack --progress --colors",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",

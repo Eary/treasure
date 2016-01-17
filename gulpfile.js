@@ -12,11 +12,15 @@ var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
 var minifycss = require('gulp-minify-css');
-var watchPath = require('gulp-watch-path');
-//var combiner = require('stream-combiner2');
+//var watchPath = require('gulp-watch-path');
 var autoprefixer = require('gulp-autoprefixer');
 
-var reload = browserSync.reload;
+var breload = browserSync.reload;
+
+
+gulp.task('test',function(){
+    console.log('Tt works!');
+});
 
 gulp.task('server',['watchjs','watchcss','watchcopy'],function(){
     browserSync({
@@ -25,8 +29,6 @@ gulp.task('server',['watchjs','watchcss','watchcopy'],function(){
             baseDir:'./dist'
         }
     });
-    //gulp.watch('dist/*.html').on('change',reload);
-    //gulp.watch()
 });
 
 gulp.task('clean',function(){
@@ -51,18 +53,23 @@ gulp.task('js',function(){
 //监听js文件
 gulp.task('watchjs',['js'],function(){
     var watcher = gulp.watch('src/js/*.js',['js']);
-    watcher.on('change',reload);
+    watcher.on('change',breload);
 });
 
 //压缩css，并输出到dist
 gulp.task('css',function(){
-    return gulp.src('src/css/**/*.css')
-        .pipe(minifycss())
+    var srcPath = 'src/css/**/*.css',
+        distPath = 'dist/css';
+    return gulp.src(srcPath)
+        .pipe(changed(distPath))
         .pipe(autoprefixer({
             browsers: ['last 2 version', 'ie 8', 'ie 9']
         }))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(reload({stream:true}));
+        .pipe(gulp.dest(distPath))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(minifycss())
+        .pipe(gulp.dest(distPath))
+        .pipe(breload({stream:true}));
 });
 
 //监听css文件
@@ -73,14 +80,18 @@ gulp.task('watchcss',['css'],function(){
 
 //编译less
 gulp.task('less',function(){
-    return gulp.src('src/less/**.less')
+    var srcPath = 'src/less/**/*.less',
+        distPath = 'dist/css';
+    return gulp.src(srcPath)
         .pipe(autoprefixer({
-          browsers: ['last 2 version', 'ie 8', 'ie 9']
+            browsers: ['last 2 version', 'ie 8', 'ie 9']
         }))
         .pipe(less())
+        .pipe(gulp.dest(distPath))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(minifycss())
-        .pipe(gulp.dest('dist/css'))
-        .pipe(reload({stream:true}));
+        .pipe(gulp.dest(distPath))
+        .pipe(breload({stream:true}));
 });
 //监听less文件
 gulp.task('watchless',['less'],function(){
@@ -89,16 +100,18 @@ gulp.task('watchless',['less'],function(){
 
 //编译sass
 gulp.task('sass',function(){
-    return gulp.src('src/sass/**/*.*')
+    var srcPath = 'src/sass/**/*.*',
+        distPath = 'dist/css';
+    return gulp.src(srcPath)
         .pipe(sass({sourcemap: true}))
         .pipe(autoprefixer({
           browsers: ['last 2 version', 'ie 8', 'ie 9']
         }))
+        .pipe(gulp.dest(distPath))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(minifycss())
-        //.pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(filter('dist/**/*.css'))
-        .pipe(reload({stream:true}));
+        .pipe(gulp.dest(distPath))
+        .pipe(breload({stream:true}));
 });
 //监听sass文件
 gulp.task('watchsass',['sass'],function(){
@@ -119,7 +132,7 @@ gulp.task('images',function(){
 //监听images
 gulp.task('watchimages',['images'],function(){
     var watcher = gulp.watch('src/images/*.*',['images']);
-    //watcher.on('change',reload);
+    //watcher.on('change',breload);
 });
 
 gulp.task('copy',function(){
@@ -132,9 +145,13 @@ gulp.task('copy',function(){
 });
 
 gulp.task('watchcopy',['copy'],function(){
-    var watcher = gulp.watch(['src/fonts/**/*','src/**/*.html'],['copy']);
-    watcher.on('change',reload);
+    var watcher = gulp.watch(['src/fonts/**/*','src/**/*.html'],['copy','reload']);
+    //watcher.on('change',breload);
 });
 
+//强制刷新页面 
+gulp.task('reload',function(){
+    breload();
+});
 //在命令行使用 gulp 启动任务
 //gulp.task('default', ['css', 'js', 'images', 'less', 'sass', 'copy', 'watchjs', 'watchcss', 'watchless', 'watchsass', 'watchimage', 'browser-sync']);
