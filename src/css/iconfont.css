@@ -7,7 +7,7 @@
   url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.iconfont {
+.icon {
   font-family:"iconfont" !important;
   font-size:1.2rem;
   font-style:normal;
@@ -51,6 +51,7 @@
 .icon-rechargefill:before { content: "\e61e"; }
 .icon-recharge:before { content: "\e61f"; }
 .icon-share:before { content: "\e639"; }
+.icon-search:before { content: "\e62a"; }
 .icon-barcode:before { content: "\e620"; }
 .icon-service:before { content: "\e621"; }
 .icon-mobile:before { content: "\e622"; }
@@ -81,3 +82,4 @@
 .icon-add1:before { content: "\e643"; }
 .icon-del:before { content: "\e644"; }
 .icon-del1:before { content: "\e645"; }
+

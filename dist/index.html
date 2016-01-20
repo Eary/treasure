@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.1/css/sm-extend.css">
     <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     <link rel="stylesheet" href="./css/index.min.css?rev=@@hash">
+    <link rel="stylesheet" href="./css/common.min.css?rev=@@hash">
     <script type='text/javascript' src="./js/config.min.js?rev=@@hash"></script>
 
 </head>
@@ -20,61 +21,96 @@
 
     <div class="page-group">
         <div class="page current-page">
-            <header class="bar bar-nav disable-route">
-<!--                 <a href="#" class="button button-link button-nav pull-left" data-transition="slide-out">
+            <!--<header class="bar bar-nav disable-route">
+                 <a href="#" class="button button-link button-nav pull-left" data-transition="slide-out">
                     <span class="icon icon-left"></span>
                     返回
-                </a> -->
+                </a> 
                 <a href="center.html"  class="button button-link button-nav pull-right">
                     <span class="icon icon-me"></span>
                 </a>
                 <h1 class='title' >首页</h1>
-            </header>
-            <div class="bar bar-header-secondary">
-                <div class="searchbar">
-                    <a class="searchbar-cancel">取消</a>
-                    <div class="search-input">
-                        <label class="icon icon-search" for="search"></label>
-                        <input autocomplete='off' type="search" id='search' placeholder='输入关键字...'/>
-                    </div>
+            </header>-->
+            <div class="content">
+                <div class="buttons-tab">
+                    <a href="index.html" class="disable-route active button">首页</a>
+                    <a href="general.html" class="disable-route button">全部商品</a>
+                    <a href="bargain.html" class="disable-route button">特价商品</a>
+                    <a href="share.html" class="disable-route button">晒单</a>
+                    <a href="center.html" class="button disable-route">个人中心</a>
                 </div>
-            </div>
-            <nav class="bar bar-tab disable-route">
-                <a href="index.html" class="tab-item active" >
-                    <span class="icon icon-home"></span>
-                    <span class="tab-label">首页</span>
-                </a>
-                <a href="general.html" class="tab-item" >
-                    <span class="icon icon-app"></span>
-                    <span class="tab-label">普通商品</span>
-                </a>
-                <a href="bargain.html" class="tab-item" >
-                    <span class="icon icon-clock"></span>
-                    <span class="tab-label">特价商品</span>
-                </a>
-                <a href="share.html" class="tab-item" >
-                    <span class="icon icon-gift"></span>
-                    <span class="tab-label">晒单</span>
-                </a>
-                <a href="cart.html" class="tab-item" >
-                    <span class="icon icon-cart"></span>
-                    <span class="tab-label">购物车</span>
-                    <span class="badge">2</span>
-                </a>
-            </nav>
-            <div class="content pull-to-refresh-content"  data-ptr-distance="55">
-                <div class="pull-to-refresh-layer">
-                    <div class="preloader"></div>
-                    <div class="pull-to-refresh-arrow"></div>
-                </div> 
+                <!-- 搜索框 -->
+                
+                <!--<div class="searchbar row">
+                    <div class="search-input col-80">
+                    <label class="icon icon-search" for="search"></label>
+                    <input type="search" id='search' placeholder='输入关键字...'/>
+                    </div>
+                    <a class="button button-fill button-primary col-20">搜索</a>
+                </div>-->
                 <div class="swiper-container" data-space-between='10'>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><a href=# ><img src="./images/56893273bf7cd.jpg?rev=8738dc0fbb41353e37e612e849b6ec09" alt=""></a></div>
                         <div class="swiper-slide"><a href=# ><img src="./images/568932778ec3d.jpg?rev=881ac638eaacf78b7db140e77942fc88" alt=""></a></div>
-                        <div class="swiper-slide"><a href=# ><img src="./images/56893284bb7ca.jpg?rev=af1d159cb8a06afb13b524426d094a05" alt=""></a></div>
+                        <div class="swiper-slide"><a href=# ><img src="./images/56893284bb7ca.jpg?rev=015653b92419fbc0b2c94a25259ad01d" alt=""></a></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
+                
+                <div class="content-padded">
+                    <p class="some-title">夺宝记录
+                        <a href="#" class="pull-right">更多</a>
+                    </p>
+                    <div class="row products">
+                        <div class="col-33">
+                            <a href="#" class="goods">
+                                <img src="./images/iphone6s.png" alt="">
+                                <p class="goods-title">Apple iPhone 6s 64G 颜色随机</p>
+                            </a>
+                        </div>
+                        
+                        <div class="col-33">
+                            <a href="#" class="goods">
+                                <img src="./images/ipadpro.png" alt="">
+                                <p class="goods-title">iPad Pro 64G 颜色随机</p>
+                            </a>
+                        </div>
+                        <div class="col-33">
+                            <a href="#" class="goods">
+                                <img src="./images/iwatch.png" alt="">
+                                <p class="goods-title">Apple Watch 42毫米不锈钢</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-padded">
+                    <p class="some-title">上架新品
+                        <a href="#" class="pull-right">更多</a>
+                    </p>
+                    <div class="row products">
+                        <div class="col-33">
+                            <a href="#" class="goods">
+                                <img src="./images/iwatch.png" alt="">
+                                <p class="goods-title">Apple Watch 42毫米不锈钢</p>
+                            </a>
+                        </div>
+                        <div class="col-33">
+                            <a href="#" class="goods">
+                                <img src="./images/iphone6s.png" alt="">
+                                <p class="goods-title">Apple iPhone 6s 64G 颜色随机</p>
+                            </a>
+                        </div>
+                        
+                        <div class="col-33">
+                            <a href="#" class="goods">
+                                <img src="./images/ipadpro.png" alt="">
+                                <p class="goods-title">iPad Pro 64G 颜色随机</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

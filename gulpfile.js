@@ -33,7 +33,7 @@ var imagesSrcPath = 'src/images/**/*.*';
 var imagesDistPath = 'dist/images/';
 var fontsSrcPath = 'src/fonts/**/*.*';
 var fontsDistPath = 'dist/fonts/';
-var htmlSrcPath = ['src/**/*.html','src/*.ico'];
+var htmlSrcPath = 'src/**/*.*';
 var htmlDistPath = 'dist/';
     
 

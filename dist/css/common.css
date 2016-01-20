@@ -1,0 +1,8 @@
+.some-title{font-size:.7rem;margin:0;}
+.some-title a{color:#999;}
+.products{background:#fff;display:block;margin-left:0;border:1px solid #dcdcdc}
+.products>.col-33{position:relative;}
+.products>.col-33+.col-33:before{position:absolute;content:'';height:100%;left:-.25rem;width:1px;background:#dcdcdc;top:0;}
+.goods{text-align: center;display: block;}
+.goods img{max-width: 100%;}
+.goods-title{font-size:.7rem;color:#999;width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
