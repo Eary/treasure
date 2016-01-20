@@ -19,7 +19,7 @@ var autoprefixer = require('gulp-autoprefixer');
 
 var breload = browserSync.reload;
 /**
- * 所有链接
+ * 所有目录
  * @type {String}
  */
 var basePath = './dist';
@@ -33,7 +33,7 @@ var imagesSrcPath = 'src/images/**/*.*';
 var imagesDistPath = 'dist/images/';
 var fontsSrcPath = 'src/fonts/**/*.*';
 var fontsDistPath = 'dist/fonts/';
-var htmlSrcPath = 'src/**/*.html';
+var htmlSrcPath = ['src/**/*.html','src/*.ico'];
 var htmlDistPath = 'dist/';
     
 
@@ -117,6 +117,7 @@ gulp.task('sass',function(){
 //压缩图片，并输出到dist
 gulp.task('images',function(){
     return gulp.src(imagesSrcPath)
+        .pipe(changed(imagesDistPath))
         .pipe(cache(imagemin({
             optimizationLevel: 3, //类型：Number  默认：3  取值范围：0-7（优化等级）
             progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
