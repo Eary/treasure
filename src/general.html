@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>普通商品列表 | 夺宝王</title>
+    <title>全部商品 | 夺宝王</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.1/css/sm.css">
     <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.1/css/sm-extend.css">
     <script type='text/javascript' src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="./css/common.min.css?rev=@@hash">
     <script type='text/javascript' src="./js/config.js?rev=@@hash"></script>
 </head>
 <body>
     <div class="page-group">
-        <div class="page">
+        <div class="page current-page">
             
            <div class="content">
                 <div class="buttons-tab">
@@ -24,14 +25,45 @@
                     <a href="share.html" class="disable-route button">晒单</a>
                     <a href="center.html" class="button disable-route">个人中心</a>
                 </div>
-                <div class="swiper-container" data-space-between='10'>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><a href=# ><img src="./images/56893273bf7cd.jpg?rev=@@hash" alt=""></a></div>
-                        <div class="swiper-slide"><a href=# ><img src="./images/568932778ec3d.jpg?rev=@@hash" alt=""></a></div>
-                        <div class="swiper-slide"><a href=# ><img src="./images/56893284bb7ca.jpg?rev=@@hash" alt=""></a></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
+                
+                <div class="products">
+                    <a href="detail.html">
+                        <div class="row">
+                            <div class="col col-33">
+                                <img src="./images/iphone6s.png" alt="">
+                            </div>
+                            <div class="col col-66">
+                                        <p class="goods-title">Apple iPhone 6s 64G 玫瑰金版本</p>
+                                <div class="row">
+                                    <div class="col col-80">
+                                        <p class="press">
+                                            <span class="cover" style="width:70%;"></span>
+                                        </p>
+                                        <p class="goods-title">
+                                            <span class="pull-left">总需5000人次</span>
+                                            <span class="pull-right">剩余500</span>
+                                        </p>
+                                    </div>
+                                    <div class="col col-20 text-center">
+                                        <span class="icon icon-cart"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+                
+                
+                <!-- CopyRight -->
+                <!--<footer id="copyright">
+                    <p class="text-center">公平公正公开 | 正品保证 | 权益保障</p>
+                    <p class="text-center">
+                        <a href="#">什么是夺宝王?</a> | 
+                        <a href="#">下载APP</a>
+                    </p>
+                    <p class="text-center">粤ICP备112345612 &copy; 2016 夺宝王.</p>
+                </footer>-->
+                
             </div>
         </div>
     </div>
